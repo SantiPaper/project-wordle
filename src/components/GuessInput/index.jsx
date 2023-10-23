@@ -1,12 +1,15 @@
 import { useState } from "react";
 
-export const GuessInput = () => {
+export const GuessInput = ({ addWord }) => {
   const [word, setWord] = useState("");
 
   const handleSubmit = (ev) => {
     ev.preventDefault();
     if (word.length === 5) {
-      console.log(word);
+      addWord({
+        word,
+        id: crypto.randomUUID(),
+      });
       setWord("");
     }
   };
